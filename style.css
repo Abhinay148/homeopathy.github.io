@@ -36,7 +36,12 @@ section{
 section:nth-child(even){
     background: #f5f5f5;
 }
-
+.index .images h1{
+    padding-top:0;
+}
+.index .contact{
+    background: pink;
+}
 .heading{
     text-align: center;
     padding-bottom: 2rem;
@@ -123,7 +128,6 @@ section:nth-child(even){
     gap: 1.5rem;
     padding-top: 10rem;
 }
-
 .home .image{
     flex: 1 1 45rem;
 }
@@ -149,7 +153,38 @@ section:nth-child(even){
     line-height: 1.8;
     padding: 1rem 0;
 }
+.home2{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 5rem;
+}
+.home2 .image{
+    flex: 1 1 45rem;
+}
 
+.home2 .image img{
+    width: 100%;
+}
+
+.home2 .content{
+    flex: 1 1 45rem;
+}
+
+.home2 .content h3{
+    font-size: 4.5rem;
+    color: var(--black);
+    line-height: 1.8;
+    text-shadow: var(--text-shadow);
+}
+
+.home2 .content p{
+    font-size: 1.7rem;
+    color: var(--light-color);
+    line-height: 1.8;
+    padding: 1rem 0;
+}
 .icons-container{
     display: grid;
     gap: 2rem;
@@ -476,7 +511,7 @@ section:nth-child(even){
 .contactForm .inputbox textarea:valid ~ span{
     color: #0b0b0b;
     font-size: 12px;
-    transform: translate(-80px);
+    transform: translateY(-80px);
 }
 .contactForm .inputbox input[type="submit"]{
     width: 100px;
@@ -662,7 +697,9 @@ transform: scale(1.1);
     .header{
         padding: 2rem;
     }
-
+    .home{
+        padding-top: 30%;
+    }
     section{
         padding: 2rem;
     }
