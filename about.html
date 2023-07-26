@@ -15,11 +15,12 @@
         <nav class="navbar">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
-            <a href="gallery.html">Gallery</a>
+            <a href="gallery1.html">Gallery</a>
             <a href="testimonials.html">Testimonials</a>
             <a href="contact.html">Contact</a>
             <a href="book.html">Book appointment</a>
-            <a href="login.html">Login/SignUp</a>
+            <a id="userNaam" href="login.html">Login/SignUp</a>
+            <i id="exit" onclick="fun()" class="fa fa-sign-out" aria-hidden="true"></i>
         </nav>
 
         <div id="menu-btn" class="fas fa-bars"></div>
@@ -27,38 +28,23 @@
 
 <section class="home" id="home">
     <div class="image">
-        <img src="drpic.jpg" alt="">
+        <img src="IMG-20230516-WA0032.jpg" alt="">
     </div>
 
     <div class="content">
         <h3>Dr. Prashant Kumar</h3>
         <p>Dr. Prashant Kumar is a registered Homoeopathic consultant and a leading classical homoeopath in India with a successful background in the diagnosis, treatment and management of patient illnesses and diseases.Having an exceptional knowledge of homoeopathic principles and procedures, he runs a very busy practice in Delhi-NCR with all sorts of clinical cases dealt thereby.He is strongly active in the community working to increase awareness of homoeopathic medical options.</p>
-        <a href="contact.html" class="btn">contact us<span class="fa-solid fa-circle-chevron-right"></span></a>
+        <a href="book.html" class="btn">Book Appointment<span class="fa-solid fa-circle-chevron-right"></span></a>
     </div>
 </section>
 <section class="home2" id="home">
     <div class="content">
         <h3>Dr. Kritika</h3>
         <p>Dr. Kritika is a registered Homoeopathic consultant and a leading classical homoeopath in India with a successful background in the diagnosis, treatment and management of patient illnesses and diseases.Having an exceptional knowledge of homoeopathic principles and procedures, he runs a very busy practice in Delhi-NCR with all sorts of clinical cases dealt thereby.He is strongly active in the community working to increase awareness of homoeopathic medical options.</p>
-        <a href="contact.html" class="btn">contact us<span class="fa-solid fa-circle-chevron-right"></span></a>
+        <a href="book.html" class="btn">Book Appointment<span class="fa-solid fa-circle-chevron-right"></span></a>
     </div>
     <div class="image">
         <img src="kri.jpg" alt="">
-    </div>
-</section>
-<section class="about" id="about">
-    <h1 class="heading"><span>about</span>us</h1>
-    <div class="row">
-        <div class="image">
-            <img src="pic4.jpg" alt="">
-        </div>
-
-        <div class="content">
-            <h3>we take care of your healthy life</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda doloribus tenetur cumque aspernatur provident, aperiam a nobis odio ipsam doloremque possimus facere nostrum rem eveniet nihil quidem, voluptates voluptate hic.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis qui nostrum, nobis repudiandae a doloribus vitae iure inventore quasi sint nulla harum voluptas odio sed excepturi voluptatum voluptatibus enim ab!</p>
-            <a href="#" class="btn">learn more<span class="fa-sharp fa-solid fa-circle-chevron-right"></span></a>
-        </div>
     </div>
 </section>
 
@@ -152,7 +138,7 @@
     </div>
 </section>
 
-<section class="contact">
+<section class="contact" id="contact">
     <div class="content">
         <h2>Contact Us</h2>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus nihil sunt aperiam placeat cum minima, ab beatae commodi non molestiae sit voluptatibus optio tenetur rerum hic nemo reprehenderit quis necessitatibus.</p>
@@ -182,18 +168,18 @@
             </div>
         </div>
         <div class="contactForm">
-            <form>
+            <form onsubmit="sendEmail(); reset(); return false;">
                 <h2>Send Message</h2>
                 <div class="inputbox">
-                    <input type="text" name="" required="required">
+                    <input type="text" id="name" required="required">
                     <span>Full Name</span>
                 </div>
                 <div class="inputbox">
-                    <input type="text" name="" required="required">
+                    <input type="text" id ="email" required="required">
                     <span>Email-id</span>
                 </div>
                 <div class="inputbox">
-                    <textarea required="required"></textarea>
+                    <textarea  id="message" required="required"></textarea>
                     <span>Type your Message...</span>
                 </div>
                 <div class="inputbox">
@@ -205,5 +191,23 @@
 </section>
 
 <script src="script.js"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    function sendEmail(){
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "abhimanyu.9981@gmail.com",
+            Password : "750C4FE6FD617B8EB8061A1166BF518DE033",
+            To : "mishraabhinay814@gmail.com",
+            From : document.getElementById("email").value,
+            Subject : "New Contact Form",
+            Body : "Name: " + document.getElementById("name").value
+            + "<br> Email: "+ document.getElementById("email").value
+            +"<br> Message: "+ document.getElementById("message").value
+        }).then(
+            message =>alert(message)
+        );
+    }
+</script>
 </body>
 </html>

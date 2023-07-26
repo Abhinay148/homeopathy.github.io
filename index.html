@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 </head>
 <body class="index">
     <header class="header">
@@ -16,11 +17,12 @@
         <nav class="navbar">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
-            <a href="gallery.html">Gallery</a>
+            <a href="gallery1.html">Gallery</a>
             <a href="testimonials.html">Testimonials</a>
             <a href="contact.html">Contact</a>
             <a href="book.html">Book appointment</a>
-            <a href="login.html">Login/SignUp</a>
+            <a id="userNaam" href="login.html">Login/SignUp</a>
+            <i id="exit" onclick="fun()" class="fa fa-sign-out" aria-hidden="true"></i>
         </nav>
 
         <div id="menu-btn" class="fas fa-bars"></div>
@@ -28,69 +30,49 @@
 
 <section class="home" id="home">
     <div class="image">
-        <img src="drpic.jpg" alt="">
+        <img src="IMG-20230516-WA0032.jpg" alt="">
     </div>
 
     <div class="content">
+        <!-- <object data="ApplicationFormDraftPrintForAll (1).pdf" type="application/pdf" width="300" height="200">
+            
+            </object>
+            <a href="ApplicationFormDraftPrintForAll (1).pdf" target="_blank">test.pdf</a> -->
         <h3>Dr. Prashant Kumar</h3>
         <p>Dr. Prashant Kumar is a registered Homoeopathic consultant and a leading classical homoeopath in India with a successful background in the diagnosis, treatment and management of patient illnesses and diseases.Having an exceptional knowledge of homoeopathic principles and procedures, he runs a very busy practice in Delhi-NCR with all sorts of clinical cases dealt thereby.He is strongly active in the community working to increase awareness of homoeopathic medical options.</p>
-        <a href="contact.html" class="btn">contact us<span class="fa-solid fa-circle-chevron-right"></span></a>
+        <a href="book.html" class="btn">Book Appointment<span class="fa-solid fa-circle-chevron-right"></span></a>
     </div>
 </section>
 <section class="home2" id="home">
     <div class="content">
         <h3>Dr. Kritika</h3>
         <p>Dr. Kritika is a registered Homoeopathic consultant and a leading classical homoeopath in India with a successful background in the diagnosis, treatment and management of patient illnesses and diseases.Having an exceptional knowledge of homoeopathic principles and procedures, he runs a very busy practice in Delhi-NCR with all sorts of clinical cases dealt thereby.He is strongly active in the community working to increase awareness of homoeopathic medical options.</p>
-        <a href="contact.html" class="btn">contact us<span class="fa-solid fa-circle-chevron-right"></span></a>
+        <a href="book.html" class="btn">Book Appointment<span class="fa-solid fa-circle-chevron-right"></span></a>
     </div>
     <div class="image">
-        <img src="kri.jpg" alt="">
+        <img src="IMG_20230528_100815.jpg" alt="">
     </div>
 </section>
-
-<section class="icons-container">
-    <div class="icons">
-        <i class="fas fa-user-md"></i>
-        <h3>adgf</h3>
-        <p>at work</p>
-    </div>
-
-    <div class="icons">
-        <i class="fas fa-users"></i>
-        <h3>5000+</h3>
-        <p>Satisfied patients</p>
-    </div>
-
-    <div class="icons">
-        <i class="fas fa-procedures"></i>
-        <h3>adgf</h3>
-        <p>beds</p>
-    </div>
-
-    <div class="icons">
-        <i class="fas fa-hospital"></i>
-        <h3>adgf</h3>
-        <p>available</p>
-    </div>
-
-</section>
-
 <section class="about" id="about">
-    <h1 class="heading"><span>about</span>us</h1>
+    <h1 class="heading"><span>Why  </span>Homeopathy</h1>
     <div class="row">
         <div class="image">
-            <img src="pic4.jpg" alt="">
+            <img src="1.jpg" alt="">
         </div>
 
         <div class="content">
-            <h3>we take care of your healthy life</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda doloribus tenetur cumque aspernatur provident, aperiam a nobis odio ipsam doloremque possimus facere nostrum rem eveniet nihil quidem, voluptates voluptate hic.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis qui nostrum, nobis repudiandae a doloribus vitae iure inventore quasi sint nulla harum voluptas odio sed excepturi voluptatum voluptatibus enim ab!</p>
-            <a href="#" class="btn">learn more<span class="fa-sharp fa-solid fa-circle-chevron-right"></span></a>
+            <h3>We take care of your healthy life</h3>
+            <p>Homeopathy is a system of alternative medicine that was developed in the late 18th century by Samuel Hahnemann, a German physician. It is based on the principle of "like cures like," which means that a substance that causes symptoms in a healthy person can be used to treat similar symptoms in a sick person.
+
+                In homeopathy, highly diluted substances derived from plants, minerals, or animals are used as remedies. These substances are prepared through a process called potentization, which involves serial dilution and vigorous shaking, known as succussion. The belief is that this process enhances the healing properties of the substance while minimizing any toxic effects.
+                
+                One of the fundamental principles of homeopathy is individualization.Homeopathic remedies are chosen based on the unique symptoms and characteristics of each person, rather than just targeting the disease itself. Homeopaths believe that the body has the ability to heal itself, and the remedies stimulate this innate healing response.
+                
+                Critics of homeopathy argue that the dilutions used in the preparation of remedies often result in solutions that contain little to no active ingredients. They contend that any perceived benefits from homeopathic treatments are due to a placebo effect or natural healing over time.
+                </p>
         </div>
     </div>
 </section>
-
 <section class="services" id="services">
     <h1 class="heading">our <span>services</span></h1>
     <div class="box-container">
@@ -133,38 +115,39 @@
     </div>
 </section>
 
-<section class="images">
+<!-- <section class="slider_container">
     <h1>Gallery</h1>
-    <div class="gallery">
-        <a href="IMG-20230307-WA0003.jpg"><img src="IMG-20230307-WA0001.jpg"></a>
-        <a href="IMG-20230307-WA0003.jpg"><img src="IMG-20230307-WA0001.jpg"></a>
-        <a href="IMG-20230307-WA0003.jpg"><img src="IMG-20230307-WA0001.jpg"></a>
-        <a href="IMG-20230307-WA0003.jpg"><img src="IMG-20230307-WA0001.jpg"></a>
-        <a href="IMG-20230307-WA0003.jpg"><img src="IMG-20230307-WA0001.jpg"></a>
-        <a href="IMG-20230307-WA0003.jpg"><img src="IMG-20230307-WA0001.jpg"></a>
-        <a href="IMG-20230307-WA0003.jpg"><img src="IMG-20230307-WA0001.jpg"></a>
-        <a href="IMG-20230307-WA0003.jpg"><img src="IMG-20230307-WA0001.jpg"></a>
-        <a href="IMG-20230307-WA0003.jpg"><img src="IMG-20230307-WA0001.jpg"></a>
-    </div>
-</section>
-
-<section class="book">
-    <h1 class="heading"><span>book your</span> appointment</h1>
-    <div class="row">
-        <div class="image">
-            <img src="book.png" alt="">
+    <div class="container">
+        <div class="swiper card_slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="img_box">
+                        <img src="3.webp">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="img_box">
+                        <img src="IMG-20230516-WA0032.jpg">
+                    </div>
+                </div>
+                
+                <div class="swiper-slide">
+                    <div class="img_box">
+                        <img src="IMG-20230330-WA0007.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="img_box">
+                        <img src="IMG-20230330-WA0006.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
         </div>
-
-        <form action="">
-            <h3>book appointment</h3>
-            <input type="text" placeholder="Your Name" class="box">
-            <input type="number"  placeholder="Your Number" class="box">
-            <input type="email"  placeholder="Your Email" class="box">
-            <input type="date" class="box">
-            <input type="submit" value="book now" class="btn">
-        </form>
     </div>
-</section>
+</section> -->
 
 <section class="review" id="reviews">
     <h1 class="heading">client's <span>review</span> </h1>
@@ -244,18 +227,18 @@
             </div>
         </div>
         <div class="contactForm">
-            <form>
+            <form onsubmit="sendEmail(); reset(); return false;">
                 <h2>Send Message</h2>
                 <div class="inputbox">
-                    <input type="text" name="" required="required">
+                    <input type="text" id="name" required="required">
                     <span>Full Name</span>
                 </div>
                 <div class="inputbox">
-                    <input type="text" name="" required="required">
+                    <input type="text" id ="email" required="required">
                     <span>Email-id</span>
                 </div>
                 <div class="inputbox">
-                    <textarea required="required"></textarea>
+                    <textarea  id="message" required="required"></textarea>
                     <span>Type your Message...</span>
                 </div>
                 <div class="inputbox">
@@ -266,6 +249,53 @@
     </div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<!-- <script type="text/javascript">
+    var swiper = new Swiper(".card_slider", {
+      spaceBetween: 30,
+      pagination: {
+        
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+        },
+        480: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
+</script> -->
 <script src="script.js"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    function sendEmail(){
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "abhimanyu.9981@gmail.com",
+            Password : "750C4FE6FD617B8EB8061A1166BF518DE033",
+            To : "mishraabhinay814@gmail.com",
+            From : document.getElementById("email").value,
+            Subject : "New Contact Form",
+            Body : "Name: " + document.getElementById("name").value
+            + "<br> Email: "+ document.getElementById("email").value
+            +"<br> Message: "+ document.getElementById("message").value
+        }).then(
+            message =>alert(message)
+        );
+    }
+</script>
 </body>
 </html>

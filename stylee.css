@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+.contain{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:120px 8%;
+}
+.contain h1 {
+    margin-bottom: 30px;
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: #92f6f8;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+.gallery{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 30px;
+}
+.gallery img{
+    width: 100%;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+    transition: transform s ease;
+}
+.gallery img:hover {
+    transform: scale(1.1); /* Apply the hover effect */
+  }
+#contact{
+    background: pink;
+}

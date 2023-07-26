@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prakriti Homeopathy Clinic</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="SignUp">
+    <header class="header">
+        <a href="" class="logo"><img src="log.jpg" alt="" height="55" width="60"></a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="gallery1.html">Gallery</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="contact.html">Contact</a>
+            <a href="book.html">Book appointment</a>
+            <a href="login.html">Login/SignUp</a>
+        </nav>
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+    </header>
+    <div class="Box">
+        <form id="form" onsubmit="event.preventDefault();signup()">
+            <h2>Sign Up</h2>
+            <div class="inputBox">
+                <input id="username" type="text">
+                <span>Username</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="email" id="useremail" >
+                <span>E-mail</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="password" id="userpassword">
+                <span>Password</span>
+                <i></i>
+            </div>
+            <div class="links">
+                <a href="login.html">Already have an account?Log-In</a>
+            </div>
+            <input type="submit" value="Signup">
+        </form>
+    </div>
+
+
+    <script src="script.js"></script>
+
+    <script>
+        async function signup() {
+            var name = document.getElementById("username").value
+            var email = document.getElementById("useremail").value
+            var password = document.getElementById("userpassword").value
+            console.log(name,email,password);
+
+            const response = await fetch(`http://localhost:5000/api/auth/signup`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name,email, password })
+            })
+            const authToken = await response.json()
+            localStorage.setItem("authToken", authToken)
+            console.log("authToken");
+            alert("Signup Success: Please SignIn to continue")
+            //transfer to login
+        }
+        function check() {
+            console.log("check");
+            if (localStorage.getItem("authToken")) {
+                console.log("true");
+            }
+            else { console.log("false"); }
+        }
+    </script>
+</body>
+
+</html>

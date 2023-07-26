@@ -17,7 +17,6 @@
     box-sizing: border-box;
     outline: none;
     border: none;
-    text-transform: capitalize;
     transition: all 0.2s ease-out;
     text-decoration: none;
 }
@@ -106,7 +105,11 @@ section:nth-child(even){
     color: var(--red);
     margin-left: 2rem;
 }
-
+.header .navbar i{
+    margin-left: 2rem;
+    cursor: pointer;
+    display: none;
+}
 .header .navbar a:hover{
     color: var(--green);
 }
@@ -291,16 +294,19 @@ section:nth-child(even){
     gap: 2rem;
 }
 
-.book .row .image{
+/* .book .row .image{
     flex: 1 1 45rem;
 }
 
 .book .row .image img{
     width: 100%;
-}
+} */
 
 .book .row form{
-    flex: 1 1 45rem;
+    width: 50%;
+    display:inline-block;
+    margin-left: auto;
+    margin-right: auto;
     background: #fff;
     border: var(--border);
     box-shadow: var(--box-shadow);
@@ -329,6 +335,25 @@ section:nth-child(even){
 .book .row form .btn{
     padding: 1rem 4rem;
 }
+#dropdown {
+    height: auto !important;
+    overflow-y: visible !important;
+    display: none;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  #dropdown option {
+    cursor: pointer;
+  }
+  #dropdown::-webkit-scrollbar {
+    display: none;
+  }
+  
+  #dropdown {
+    height: auto !important;
+    overflow-y: visible !important;
+  }
 .bookie .book .heading{
     padding-top: 8%;
 }
@@ -399,6 +424,9 @@ section:nth-child(even){
     padding-top: 8%;
 }
 .con section{
+    background: pink;
+}
+#contact{
     background: pink;
 }
 .contact{
@@ -511,7 +539,7 @@ section:nth-child(even){
 .contactForm .inputbox textarea:valid ~ span{
     color: #0b0b0b;
     font-size: 12px;
-    transform: translateY(-80px);
+    transform: translateY(-20px);
 }
 .contactForm .inputbox input[type="submit"]{
     width: 100px;
@@ -522,25 +550,54 @@ section:nth-child(even){
     padding: 10px;
     font-size: 18px;
 }
-.images h1{
+/* .swiper{
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    position: relative;
+    z-index: 2;
+}
+
+.swiper-pagination {
+    position: relative;
+    z-index: 2;
+}
+.swiper-slide img {
+    display: block;
+    border: .5rem solid rgb(119, 121, 213);
+    border-radius: 1%;
+    width: 530px;
+    height: 400px;
+    object-fit: contain;
+}
+
+
+
+.slider_container h1{
     padding-top: 5%;
     font-size: 80px;
     text-align: center;
-    margin:20px 0 30px;
-}
-.gallery {
-    margin: 10px 30px;
-}
-.gallery img{
-    width: 230px;
-    padding: 8px;
-    transition: 1s;
-    
-}
-.gallery img:hover {
-transform: scale(1.1);
-}
 
+}
+.slider_container .container{
+    padding: 0 15px;
+    max-width: 1230px;
+    margin: 0 auto;
+}
+.swiper-wrapper{
+    padding-top: 10px;
+}
+.card_slider{
+    padding:20px 20px;
+} */
 .login{
     display: flex;
     justify-content: center;
@@ -549,7 +606,14 @@ transform: scale(1.1);
     box-sizing: border-box;
     background: #23242a;
 }
-
+.SignUp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background: #23242a;
+}
 .Box{
     position: relative;
     width: 380px;
@@ -689,11 +753,13 @@ transform: scale(1.1);
 .Box form input[type="submit"]:active{
     opacity: 0.8;
 }
+
+
+
 @media (max-width:991px){
     html{
         font-size: 55%;
     }
-
     .header{
         padding: 2rem;
     }
@@ -704,7 +770,7 @@ transform: scale(1.1);
         padding: 2rem;
     }
     .contact{
-        padding: 20%;
+        padding: 10%;
     }
     .container{
         flex-direction: column;
@@ -714,14 +780,7 @@ transform: scale(1.1);
     }
     .container .contactInfo,
     .contactForm{
-        width: 150%;
-    }
-    .images h1{
-        padding-top: 13%;
-    }
-    .gallery img{
-        width: 300px;
-        
+        width: 100%;
     }
     .test .review .heading{
         padding-top: 25%;
@@ -758,6 +817,9 @@ transform: scale(1.1);
         font-size: 2rem;
         display: block;
         margin: 2.5rem;
+    }
+    .gall .slider_container h1{
+        padding-top: 50px;
     }
     
 }

@@ -16,11 +16,12 @@
         <nav class="navbar">
             <a href="index.html">Home</a>
             <a href="index.html">About</a>
-            <a href="gallery.html">Gallery</a>
+            <a href="gallery1.html">Gallery</a>
             <a href="testimonials.html">Testimonials</a>
             <a href="contact.html">Contact</a>
             <a href="book.html">Book appointment</a>
-            <a href="login.html">Login/SignUp</a>
+            <a id="userNaam" href="login.html">Login/SignUp</a>
+            <i id="exit" onclick="fun()" class="fa fa-sign-out" aria-hidden="true"></i>
         </nav>
 
         <div id="menu-btn" class="fas fa-bars"></div>
@@ -55,18 +56,18 @@
                 </div>
             </div>
             <div class="contactForm">
-                <form>
+                <form onsubmit="sendEmail(); reset(); return false;">
                     <h2>Send Message</h2>
                     <div class="inputbox">
-                        <input type="text" name="" required="required">
+                        <input type="text" id="name" required="required">
                         <span>Full Name</span>
                     </div>
                     <div class="inputbox">
-                        <input type="text" name="" required="required">
+                        <input type="email" id ="email" required="required">
                         <span>Email-id</span>
                     </div>
                     <div class="inputbox">
-                        <textarea required="required"></textarea>
+                        <textarea  id="message" required="required"></textarea>
                         <span>Type your Message...</span>
                     </div>
                     <div class="inputbox">
@@ -76,7 +77,26 @@
             </div>
         </div>
     </section>
-    
+
+
 <script src="script.js"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    function sendEmail(){
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "abhimanyu.9981@gmail.com",
+            Password : "750C4FE6FD617B8EB8061A1166BF518DE033",
+            To : "mishraabhinay814@gmail.com",
+            From : document.getElementById("email").value,
+            Subject : "New Contact Form",
+            Body : "Name: " + document.getElementById("name").value
+            + "<br> Email: "+ document.getElementById("email").value
+            +"<br> Message: "+ document.getElementById("message").value
+        }).then(
+            message =>alert(message)
+        );
+    }
+</script>
 </body>
 </html>

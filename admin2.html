@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="style2.css">
+</head>
+
+<body onload="getAppoint()">
+  <header>
+    <h1>Admin Dashboard</h1>
+    <nav>
+      <ul>
+        <li class="active"><a href="admin2.html">Dashboard</a></li>
+        <li><a href="users.html">Users</a></li>
+        <li ><a href="" onclick="fun()">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section id="dashboard">
+    <h2>Dashboard</h2>
+    <div class="data-box">
+      <h3>Total Patients</h3>
+      <p class="data">100+</p>
+    </div>
+    <div class="data-box">
+      <h3>New Patients</h3>
+      <p class="data">150</p>
+    </div>
+    <div class="data-box">
+      <h3>Appointments</h3>
+      <p class="data">1</p>
+    </div>
+    <div class="table-box">
+      <h3>Recent Appointments</h3>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Patient Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Doctor</th>
+            <th>Phone</th>
+            <th>Report</th>
+          </tr>
+        </thead>
+        <tbody id="table">
+
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <script>
+    function fun(){
+        localStorage.removeItem("authToken");
+          location.reload();
+
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+  <script>
+    async function getAppoint() {
+      const Token = localStorage.getItem("authToken")
+      if(!Token){
+        location.href="login.html";
+        return
+      }
+      const response = await fetch(`http://localhost:5000/api/notes/fetchnotes`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': Token
+        },
+      })
+      try {
+        const array = await response.json()
+        console.log(array);
+        array.map(myFunction);
+      } catch (error) {
+        console.log("error", error);
+      }
+    }
+    function upload(item){
+      localStorage.setItem('appointmentData', item);
+      location.href="upload.html";
+    }
+    function myFunction(item) {
+      var result = "<tr>" +
+        "<td>" + item.name + "</td>" +
+        "<td>" + item.age + "</td>" +
+        "<td>" + item.gender + "</td>"+
+        "<td>" + item.date + "</td>" +
+        "<td>" + item.time + "</td>" +
+        "<td>" + item.doctor + "</td>" +
+        "<td>" + item.phone + "</td>" +
+        "<td><button onclick=\"upload('" + item._id + "')\">Upload</button></td>" +
+    "</tr>";
+      document.getElementById("table").innerHTML += result
+    }
+
+    
+  </script>
+  <script src="index.js"></script>
+</body>
+
+</html>

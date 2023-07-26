@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="style2.css">
+  </head>
+  <body onload="getData()">
+    <header>
+      <h1>All Patients</h1>
+      <nav>
+        <ul>
+          <li class="active"><a href="admin2.html">Dashboard</a></li>
+          <li><a href="users.html">Users</a></li>
+          <li ><a href="" onclick="fun()">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section id="allPatients">
+        <div class="table-box">
+            <h3></h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Patient Name</th>
+                  <th>Email-Id</th>
+                  <th>Date Joined</th>
+                  <th>Phone No.</th>
+                </tr>
+              </thead>
+              <tbody id="table1">
+                
+              </tbody>
+            </table>
+          </div>
+    </section>
+
+    <script>
+      function fun(){
+          localStorage.removeItem("authToken");
+          location.reload()
+  
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+    <script>
+      async function getData() {
+        const Token = localStorage.getItem("authToken")
+        if(!Token){
+        location.href="login.html";
+        return
+      }
+        const response = await fetch(`http://localhost:5000/api/auth/getdata`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'auth-token': Token
+          },
+        })
+        try {
+          const array = await response.json()
+          console.log(array);
+          array.map(myFunction)
+        } catch (error) {
+          console.log("error", error);
+        }
+      }
+      function myFunction(item) {
+      var result = "<tr>" +
+        "<td>" + item.name + "</td>" +
+        "<td>" + item.email + "</td>" +
+        "<td>" + item.date + "</td>" +
+        "<td>" + item.phone + "</td>" +
+        "</tr>"
+      document.getElementById("table1").innerHTML += result
+    }
+    </script>
+</body>
+</html>
